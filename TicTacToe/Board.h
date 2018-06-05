@@ -17,6 +17,7 @@ public:
 	void printBoard();
 	void setSymbol(string c, int pos);
 	bool checkFilled(int pos);
+	bool allFilled();
 	virtual ~Board();
 };
 

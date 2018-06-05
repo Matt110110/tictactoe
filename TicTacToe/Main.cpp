@@ -33,7 +33,8 @@ int logic(Player p1, Player p2)
 	Board b;
 	int pos;
 	b.printBoard();
-	for (int i = 0; i < 9; i++)
+	bool x = false;
+	while (!x)
 	{
 		cout << endl << p1.getName() << " enter your box:(1-9) ";
 		cin >> pos;
@@ -71,6 +72,7 @@ int logic(Player p1, Player p2)
 		{
 			return 2;
 		}
+		x = b.allFilled();
 	}
 	// Return statement for draw
 	return 0;

@@ -70,6 +70,20 @@ bool Board::checkFilled(int pos)
 	return false;
 }
 
+bool Board::allFilled()
+{
+	int count = 0;
+	for (int i = 0; i < 9; i++)
+	{
+		if (_filled[i] == 1)
+			count++;
+	}
+	if (count == 9)
+		return true;
+	else
+		return false;
+}
+
 
 Board::~Board()
 {
