@@ -6,6 +6,8 @@
 
 using namespace std;
 
+string createString(char);
+
 int main()
 {
 	char choice;
@@ -14,7 +16,7 @@ int main()
 		Player p1, p2;
 		Board b;
 		string name;
-		stringstream ss;
+		//stringstream ss;
 		char symbol;
 		string str;
 		string space(" ");
@@ -36,11 +38,11 @@ int main()
 		// Clear the screen
 		system("cls");
 		cout << "\nLet's start the match. Both players ready!\n";
-		ss << space;
+		/*ss << space;
 		ss << symbol;
 		ss << space;
-		ss >> str;
-		b.setSymbol(str, 1);
+		ss >> str;*/
+		b.setSymbol(createString(symbol), 1);
 		b.printBoard();
 		// Control part to repeat the program.
 		cout << "\nDo you want to play again?(Y/n)\n";
@@ -48,4 +50,10 @@ int main()
 	} while (choice == 'Y' || choice == 'y');
 	system("PAUSE");
 	return 0;
+}
+
+string createString(char c)
+{
+	string space(' ', 1);
+	return string(space + c + space);
 }
