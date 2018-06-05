@@ -33,28 +33,28 @@ void Board::setSymbol(string c, int pos)
 		_board[0][0] = c;
 		break;
 	case 2:
-		_board[0][1] = c;
-		break;
-	case 3:
 		_board[0][2] = c;
 		break;
+	case 3:
+		_board[0][4] = c;
+		break;
 	case 4:
-		_board[1][0] = c;
-		break;
-	case 5:
-		_board[1][1] = c;
-		break;
-	case 6:
-		_board[1][2] = c;
-		break;
-	case 7:
 		_board[2][0] = c;
 		break;
+	case 5:
+		_board[2][2] = c;
+		break;
+	case 6:
+		_board[2][4] = c;
+		break;
+	case 7:
+		_board[4][0] = c;
+		break;
 	case 8:
-		_board[2][1] = c;
+		_board[4][2] = c;
 		break;
 	case 9:
-		_board[2][2] = c;
+		_board[4][4] = c;
 		break;
 	default:
 		break;

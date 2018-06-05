@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <Windows.h>
 #include "Player.h"
 #include "Board.h"
 
@@ -45,6 +46,7 @@ int logic(Player p1, Player p2)
 			else
 			{
 				cout << "\nThat position is already taken. You lose.\n";
+				Sleep(100);
 				return 2;
 			}
 			if (isGameOver())
@@ -62,6 +64,7 @@ int logic(Player p1, Player p2)
 			else
 			{
 				cout << "\nThat position is already taken. You lose.\n";
+				Sleep(100);
 				return 1;
 			}
 			if (isGameOver())
