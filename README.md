@@ -13,6 +13,7 @@ A tic-tac-toe game using command prompt.
 2. Players can be defined and select their box position.
 3. Selected position gets updated with the player symbol.
 4. In case player selects an already filled box he instantly loses.
+5. Dual printing bug fixed completely and looping bug partially fixed.
 
 ## TODO:
 * Define the actual logic of the program, to test whether the game is over or not and check if someone won or it's a stalemate.
