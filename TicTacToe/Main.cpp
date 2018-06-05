@@ -32,45 +32,45 @@ int logic(Player p1, Player p2)
 {
 	Board b;
 	int pos;
+	b.printBoard();
 	for (int i = 0; i < 9; i++)
 	{
-		b.printBoard();
-			cout << endl << p1.getName() << " enter your box:(1-9) ";
-			cin >> pos;
-			if (!b.checkFilled(pos))
-			{
-				string temp1(1, p1.getChar());
-				b.setSymbol(temp1, pos);
-				b.printBoard();
-			}
-			else
-			{
-				cout << "\nThat position is already taken. You lose.\n";
-				Sleep(100);
-				return 2;
-			}
-			if (isGameOver())
-			{
-				return 1;
-			}
-			cout << endl << p2.getName() << " enter your box:(1-9) ";
-			cin >> pos;
-			if (!b.checkFilled(pos))
-			{
-				string temp2(1, p2.getChar());
-				b.setSymbol(temp2, pos);
-				b.printBoard();
-			}
-			else
-			{
-				cout << "\nThat position is already taken. You lose.\n";
-				Sleep(100);
-				return 1;
-			}
-			if (isGameOver())
-			{
-				return 2;
-			}
+		cout << endl << p1.getName() << " enter your box:(1-9) ";
+		cin >> pos;
+		if (!b.checkFilled(pos))
+		{
+			string temp1(1, p1.getChar());
+			b.setSymbol(temp1, pos);
+			b.printBoard();
+		}
+		else
+		{
+			cout << "\nThat position is already taken. You lose.\n";
+			Sleep(100);
+			return 2;
+		}
+		if (isGameOver())
+		{
+			return 1;
+		}
+		cout << endl << p2.getName() << " enter your box:(1-9) ";
+		cin >> pos;
+		if (!b.checkFilled(pos))
+		{
+			string temp2(1, p2.getChar());
+			b.setSymbol(temp2, pos);
+			b.printBoard();
+		}
+		else
+		{
+			cout << "\nThat position is already taken. You lose.\n";
+			Sleep(100);
+			return 1;
+		}
+		if (isGameOver())
+		{
+			return 2;
+		}
 	}
 	// Return statement for draw
 	return 0;
@@ -100,6 +100,7 @@ void control()
 	cin >> symbol;
 	p2.setCharacter(symbol);
 	cout << "\nHello " << p2.getName() << ", your character is : " << p2.getChar() << endl;
+	Sleep(100);
 	// Clear the screen
 	system("cls");
 	string sym(1, symbol);
