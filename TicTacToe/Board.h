@@ -13,6 +13,7 @@ class Board
 public:
 	Board();
 	void printBoard();
+	void setSymbol(string c, int pos);
 	virtual ~Board();
 };
 

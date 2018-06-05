@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "Player.h"
 #include "Board.h"
 
@@ -13,7 +14,11 @@ int main()
 		Player p1, p2;
 		Board b;
 		string name;
+		stringstream ss;
 		char symbol;
+		string str;
+		string space(" ");
+		//char *x = &symbol;
 		cout << "\nEnter the name of Player 1: \n";
 		cin >> name;
 		p1.setName(name);
@@ -31,6 +36,11 @@ int main()
 		// Clear the screen
 		system("cls");
 		cout << "\nLet's start the match. Both players ready!\n";
+		ss << space;
+		ss << symbol;
+		ss << space;
+		ss >> str;
+		b.setSymbol(str, 1);
 		b.printBoard();
 		// Control part to repeat the program.
 		cout << "\nDo you want to play again?(Y/n)\n";
