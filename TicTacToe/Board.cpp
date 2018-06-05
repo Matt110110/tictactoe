@@ -3,6 +3,11 @@
 #include <string>
 using namespace std;
 
+void Board::_setFilled(int n)
+{
+	_filled[n] = 1;
+}
+
 Board::Board()
 {
 }
@@ -21,6 +26,7 @@ void Board::printBoard()
 
 void Board::setSymbol(string c, int pos)
 {
+	_setFilled(pos - 1);
 	switch (pos)
 	{
 	case 1:
@@ -53,6 +59,15 @@ void Board::setSymbol(string c, int pos)
 	default:
 		break;
 	}
+}
+
+bool Board::checkFilled(int pos)
+{
+	if (_filled[pos - 1] == 1)
+	{
+		return true;
+	}
+	return false;
 }
 
 

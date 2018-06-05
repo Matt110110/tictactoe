@@ -14,7 +14,7 @@ int main()
 	char choice;
 	do
 	{
-		
+		control();
 		// Control part to repeat the program.
 		cout << "\nDo you want to play again?(Y/n)\n";
 		cin >> choice;
@@ -36,17 +36,34 @@ int logic(Player p1, Player p2)
 		b.printBoard();
 			cout << endl << p1.getName() << " enter your box:(1-9) ";
 			cin >> pos;
-			string temp1(1, p1.getChar());
-			b.setSymbol(temp1, pos);
-			b.printBoard();
+			if (!b.checkFilled(pos))
+			{
+				string temp1(1, p1.getChar());
+				b.setSymbol(temp1, pos);
+				b.printBoard();
+			}
+			else
+			{
+				cout << "\nThat position is already taken. You lose.\n";
+				return 2;
+			}
 			if (isGameOver())
 			{
 				return 1;
 			}
 			cout << endl << p2.getName() << " enter your box:(1-9) ";
-			string temp2(1, p2.getChar());
-			b.setSymbol(temp2, pos);
-			b.printBoard();
+			cin >> pos;
+			if (!b.checkFilled(pos))
+			{
+				string temp2(1, p2.getChar());
+				b.setSymbol(temp2, pos);
+				b.printBoard();
+			}
+			else
+			{
+				cout << "\nThat position is already taken. You lose.\n";
+				return 1;
+			}
 			if (isGameOver())
 			{
 				return 2;
