@@ -1,12 +1,9 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 #include "Player.h"
 #include "Board.h"
 
 using namespace std;
-
-string createString(char);
 
 int main()
 {
@@ -16,11 +13,9 @@ int main()
 		Player p1, p2;
 		Board b;
 		string name;
-		//stringstream ss;
 		char symbol;
 		string str;
 		string space(" ");
-		//char *x = &symbol;
 		cout << "\nEnter the name of Player 1: \n";
 		cin >> name;
 		p1.setName(name);
@@ -37,12 +32,9 @@ int main()
 		cout << "\nHello " << p2.getName() << ", your character is : " << p2.getChar() << endl;
 		// Clear the screen
 		system("cls");
+		string sym(1, symbol);
 		cout << "\nLet's start the match. Both players ready!\n";
-		/*ss << space;
-		ss << symbol;
-		ss << space;
-		ss >> str;*/
-		b.setSymbol(createString(symbol), 1);
+		b.setSymbol(sym, 1);
 		b.printBoard();
 		// Control part to repeat the program.
 		cout << "\nDo you want to play again?(Y/n)\n";
@@ -50,10 +42,4 @@ int main()
 	} while (choice == 'Y' || choice == 'y');
 	system("PAUSE");
 	return 0;
-}
-
-string createString(char c)
-{
-	string space(' ', 1);
-	return string(space + c + space);
 }
