@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Player.h"
+#include "Board.h"
 
 using namespace std;
 
@@ -10,6 +11,7 @@ int main()
 	do
 	{
 		Player p1, p2;
+		Board b;
 		string name;
 		char symbol;
 		cout << "\nEnter the name of Player 1: \n";
@@ -26,8 +28,10 @@ int main()
 		cin >> symbol;
 		p2.setCharacter(symbol);
 		cout << "\nHello " << p2.getName() << ", your character is : " << p2.getChar() << endl;
+		// Clear the screen
 		system("cls");
 		cout << "\nLet's start the match. Both players ready!\n";
+		b.printBoard();
 		// Control part to repeat the program.
 		cout << "\nDo you want to play again?(Y/n)\n";
 		cin >> choice;
