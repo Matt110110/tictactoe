@@ -8,7 +8,7 @@ using namespace std;
 
 int logic(Player, Player);
 void control();
-bool isGameOver();
+bool isGameOver(Board, Player);
 
 int main()
 {
@@ -50,7 +50,7 @@ int logic(Player p1, Player p2)
 			Sleep(100);
 			return 2;
 		}
-		if (isGameOver())
+		if (isGameOver(b, p1))
 		{
 			return 1;
 		}
@@ -68,7 +68,7 @@ int logic(Player p1, Player p2)
 			Sleep(100);
 			return 1;
 		}
-		if (isGameOver())
+		if (isGameOver(b, p2))
 		{
 			return 2;
 		}
@@ -131,8 +131,9 @@ Function to check whether the match is over or not.
 Checks if someone won the game or for stalemate.
 The second reason is hard to implement.
 */
-bool isGameOver()
+bool isGameOver(Board b, Player p)
 {
+
 	// Default response
 	return false;
 }

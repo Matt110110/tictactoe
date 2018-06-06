@@ -18,6 +18,7 @@ public:
 	void setSymbol(string c, int pos);
 	bool checkFilled(int pos);
 	bool allFilled();
+	int * whatFilled();
 	virtual ~Board();
 };
 

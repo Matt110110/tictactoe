@@ -84,6 +84,11 @@ bool Board::allFilled()
 		return false;
 }
 
+int* Board::whatFilled()
+{
+	return _filled;
+}
+
 
 Board::~Board()
 {
