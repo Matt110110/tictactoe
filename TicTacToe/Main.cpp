@@ -3,12 +3,12 @@
 #include <Windows.h>
 #include "Player.h"
 #include "Board.h"
+#include "GameLogic.h"
 
 using namespace std;
 
 int logic(Player, Player);
 void control();
-bool isGameOver(Board, Player);
 
 int main()
 {
@@ -31,6 +31,7 @@ The main logic of the game. I think the control would be a better name. This met
 int logic(Player p1, Player p2)
 {
 	Board b;
+	GameLogic gl;
 	int pos;
 	b.printBoard();
 	bool x = false;
@@ -50,7 +51,7 @@ int logic(Player p1, Player p2)
 			Sleep(100);
 			return 2;
 		}
-		if (isGameOver(b, p1))
+		if (gl.isGameOver(b, p1))
 		{
 			return 1;
 		}
@@ -68,7 +69,7 @@ int logic(Player p1, Player p2)
 			Sleep(100);
 			return 1;
 		}
-		if (isGameOver(b, p2))
+		if (gl.isGameOver(b, p2))
 		{
 			return 2;
 		}
@@ -124,16 +125,4 @@ void control()
 	default:
 		break;
 	}
-}
-
-/*
-Function to check whether the match is over or not.
-Checks if someone won the game or for stalemate.
-The second reason is hard to implement.
-*/
-bool isGameOver(Board b, Player p)
-{
-
-	// Default response
-	return false;
 }
