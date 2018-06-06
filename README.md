@@ -22,5 +22,5 @@ A tic-tac-toe game using command prompt.
 * Improve the algorithm to check whether the game will end up in a tie or not.
 * Add a single player mode with AI.
 * Use enums to lock down the symbols to X or O. Right now anything goes.
-* Catch exceptions when char is entered instead of number
+* ~Catch exceptions when char is entered instead of number~
 * Less harsh approach to entering an already filled box. Right now it results in loss.

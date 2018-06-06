@@ -37,43 +37,54 @@ int logic(Player p1, Player p2)
 	int stepCount = 0;
 	while (stepCount < 10)
 	{
-		cout << endl << p1.getName() << " enter your box:(1-9) ";
-		cin >> pos;
-		if (!b.checkFilled(pos))
+		try
 		{
-			string temp1(1, p1.getChar());
-			b.setSymbol(temp1, pos);
-			b.printBoard();
-			stepCount++;
+			cout << endl << p1.getName() << " enter your box:(1-9) ";
+			cin >> pos;
+			if (pos > 9 || pos < 0)
+				throw exception("Wrong input format");
+			if (!b.checkFilled(pos))
+			{
+				string temp1(1, p1.getChar());
+				b.setSymbol(temp1, pos);
+				b.printBoard();
+				stepCount++;
+			}
+			else
+			{
+				cout << "\nThat position is already taken. You lose.\n";
+				Sleep(100);
+				return 2;
+			}
+			if (b.isGameOver(pos, X))
+			{
+				return 1;
+			}
+			cout << endl << p2.getName() << " enter your box:(1-9) ";
+			cin >> pos;
+			if (pos > 9 || pos < 0)
+				throw exception("Format error");
+			if (!b.checkFilled(pos))
+			{
+				string temp2(1, p2.getChar());
+				b.setSymbol(temp2, pos);
+				b.printBoard();
+				stepCount++;
+			}
+			else
+			{
+				cout << "\nThat position is already taken. You lose.\n";
+				Sleep(100);
+				return 1;
+			}
+			if (b.isGameOver(pos, O))
+			{
+				return 2;
+			}
 		}
-		else
+		catch (const std::exception& e)
 		{
-			cout << "\nThat position is already taken. You lose.\n";
-			Sleep(100);
-			return 2;
-		}
-		if (b.isGameOver(pos, X))
-		{
-			return 1;
-		}
-		cout << endl << p2.getName() << " enter your box:(1-9) ";
-		cin >> pos;
-		if (!b.checkFilled(pos))
-		{
-			string temp2(1, p2.getChar());
-			b.setSymbol(temp2, pos);
-			b.printBoard();
-			stepCount++;
-		}
-		else
-		{
-			cout << "\nThat position is already taken. You lose.\n";
-			Sleep(100);
-			return 1;
-		}
-		if (b.isGameOver(pos, O))
-		{
-			return 2;
+			return 3;
 		}
 	}
 	// Return statement for draw
@@ -120,9 +131,11 @@ void control()
 	case 2:
 		cout << endl << p2.getName() << " won!\n";
 		break;
-	case 3:
+	case 0:
 		cout << "\nIt was a tie.\n";
 		break;
+	case 3:
+		cout << "\nThere was some error. Did you try to enter a character instead of a number?\n";
 	default:
 		break;
 	}
