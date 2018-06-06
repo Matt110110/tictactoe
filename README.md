@@ -17,8 +17,8 @@ A tic-tac-toe game using command prompt.
 6. Game logic completed. Game can decide who won and lost.
 
 ## TODO:
-* ~Define the actual logic of the program, to test whether the game is over or not and check if someone won or it's a stalemate.~
-* ~Remove the dual printing bug for player two.~
+* ~~Define the actual logic of the program, to test whether the game is over or not and check if someone won or it's a stalemate.~~
+* ~~Remove the dual printing bug for player two.~~
 * Improve the algorithm to check whether the game will end up in a tie or not.
 * Add a single player mode with AI.
 * Use enums to lock down the symbols to X or O. Right now anything goes.
