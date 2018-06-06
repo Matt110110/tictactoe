@@ -3,7 +3,6 @@
 #include <Windows.h>
 #include "Player.h"
 #include "Board.h"
-#include "GameLogic.h"
 
 using namespace std;
 
@@ -31,11 +30,12 @@ The main logic of the game. I think the control would be a better name. This met
 int logic(Player p1, Player p2)
 {
 	Board b;
-	GameLogic gl;
 	int pos;
+	string X(1, p1.getChar());
+	string O(1, p2.getChar());
 	b.printBoard();
-	bool x = false;
-	while (!x)
+	int stepCount = 0;
+	while (stepCount < 10)
 	{
 		cout << endl << p1.getName() << " enter your box:(1-9) ";
 		cin >> pos;
@@ -44,6 +44,8 @@ int logic(Player p1, Player p2)
 			string temp1(1, p1.getChar());
 			b.setSymbol(temp1, pos);
 			b.printBoard();
+			b.setFilledX(pos);
+			stepCount++;
 		}
 		else
 		{
@@ -51,7 +53,7 @@ int logic(Player p1, Player p2)
 			Sleep(100);
 			return 2;
 		}
-		if (gl.isGameOver(b, p1))
+		if (b.isGameOver(pos, X))
 		{
 			return 1;
 		}
@@ -62,6 +64,8 @@ int logic(Player p1, Player p2)
 			string temp2(1, p2.getChar());
 			b.setSymbol(temp2, pos);
 			b.printBoard();
+			b.setFilledY(pos);
+			stepCount++;
 		}
 		else
 		{
@@ -69,11 +73,10 @@ int logic(Player p1, Player p2)
 			Sleep(100);
 			return 1;
 		}
-		if (gl.isGameOver(b, p2))
+		if (b.isGameOver(pos, O))
 		{
 			return 2;
 		}
-		x = b.allFilled();
 	}
 	// Return statement for draw
 	return 0;

@@ -6,7 +6,7 @@ class GameLogic :
 {
 public:
 	GameLogic();
-	bool isGameOver(Board b, Player p);
+	bool isGameOver(Board b, Player p, int pos);
 	~GameLogic();
 };
 
