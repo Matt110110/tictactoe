@@ -85,11 +85,11 @@ Controls the flow of the game.
 */
 void control()
 {
+	system("cls");
 	Player p1, p2;
 	string name;
 	char symbol;
 	string str;
-	string space(" ");
 	cout << "\nEnter the name of Player 1: \n";
 	cin >> name;
 	p1.setName(name);
