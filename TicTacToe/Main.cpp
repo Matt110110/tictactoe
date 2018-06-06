@@ -44,7 +44,6 @@ int logic(Player p1, Player p2)
 			string temp1(1, p1.getChar());
 			b.setSymbol(temp1, pos);
 			b.printBoard();
-			b.setFilledX(pos);
 			stepCount++;
 		}
 		else
@@ -64,7 +63,6 @@ int logic(Player p1, Player p2)
 			string temp2(1, p2.getChar());
 			b.setSymbol(temp2, pos);
 			b.printBoard();
-			b.setFilledY(pos);
 			stepCount++;
 		}
 		else
